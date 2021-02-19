@@ -51,9 +51,12 @@ append in the context the **"client"** value with the **"sub"** value from jwt.
 This middleware log the **request** and **response** value received in the api.
 
 ## Examples:
-In this section you can test the middleware running.
+In this section you can test the middleware, I include information about the stdout in each request.
 
-##### CURL request:
+### Example °1:
+Try the next CURL with the running api.
+
+**REQUEST**
 ```console
 curl --location --request GET 'http://127.0.0.1:8000/home' \
 --header 'x-correlation-id: 1213123213123213213123' \
@@ -63,6 +66,19 @@ curl --location --request GET 'http://127.0.0.1:8000/home' \
     "name":"damian"
 }'
 ```
+
+**STDOUT**
+```bash
+> node ./src/server/index.js
+
+Running 8000
+{"level":"LOG","code":0,"time":1613712617329,"message":"Received request","url":"/home","method":"GET","traceId":"1213123213123213213123","client":"1234567890"}
+{"level":"LOG","code":0,"time":1613712617330,"message":"Processing home","value":"activated","traceId":"1213123213123213213123","client":"1234567890"}
+{"level":"INFO","code":0,"time":1613712617330,"message":"Run process test service","traceId":"1213123213123213213123","client":"1234567890"}
+{"level":"LOG","code":0,"time":1613712617330,"message":"Response request","url":"/","status":200,"method":"GET","traceId":"1213123213123213213123","client":"1234567890","response":{"mock":{"name":"Damian Cipolat","mone":"2000.00","benefits":["golf","psx","netflix"]}}}
+```
+
+
 
 #### **HOME request**:
 In this request the header have the "authorization" header and x-correlation-id
