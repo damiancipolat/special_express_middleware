@@ -4,7 +4,7 @@
 This project consists of being a collection of middlewares created for expressjs. In order to have a focus on monitoring and traceability designed for production ready api-rest.
 
 ## List of middleware
-Take a look in the folder **/src/server/middleware**
+Take a look in the folder **/src/server/middleware**.
 
 | Name | Description  |
 |-------------|--------|
@@ -12,6 +12,28 @@ Take a look in the folder **/src/server/middleware**
 |restrict.js | Allow a request only if have an authorization header. |
 |tokenDecoder.js | Inject in the context clienId from jwt and in the request object. |
 |traceability.js | Inject in the request and the context the traceability from headers. |
+
+## How to use?
+Create a js file and import the middleware and bind in express app.
+
+```js
+//Load custom middlewares
+const {
+  traceabilityContext,
+  token2Context,
+  expressLogger
+} = require('./middleware');
+
+//Start Express-js.
+const app = express();
+const server = http.createServer(app);
+
+//Parse the request to use the body for the events.
+app.use(httpContext.middleware);
+app.use(traceabilityContext);
+app.use(token2Context);
+app.use(expressLogger);
+```
 
 ## Examples:
 In this section you can test the middleware running.
