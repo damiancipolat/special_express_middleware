@@ -18,6 +18,8 @@ Take a look in the folder **/src/server/middleware**.
 Create a js file and import the middleware and bind in express app.
 
 ```js
+const httpContext = require('express-http-context');
+
 //Load custom middlewares
 const {
   traceabilityContext,
@@ -38,17 +40,15 @@ app.use(expressLogger);
 
 ## Detail:
 
-**tokenDecoder**:
-Extract the "sub" claim from the "authorization" header decoding the JWT token, modify the expressjs request object adding "clientId" attribute",
-append in the context the "client" value with the "sub" value from jwt.
+### 1) **traceability**:
+Extract the header **x-correlation-id** include this value in the request object with the attibute **traceId** and store in the context the **traceId** value,
 
+### 2) **tokenDecoder**:
+Extract the **"sub"** claim from the "authorization" header decoding the JWT token, modify the expressjs request object adding **"clientId"** attribute",
+append in the context the **"client"** value with the **"sub"** value from jwt.
 
-
-app.use(httpContext.middleware);
-app.use(traceabilityContext);
-app.use(token2Context);
-app.use(expressLogger);
-
+### 3) **expressLogger**:
+This middleware log the **request** and **response** value received in the api.
 
 ## Examples:
 In this section you can test the middleware running.
