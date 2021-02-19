@@ -96,6 +96,10 @@ const process = () => {
 }
 ```
 
+### Diagram, traceability:
+<img src="https://github.com/damiancipolat/special_express_middleware/blob/main/diagram.png?raw=true" width="800px"/>
+
+
 <a name="order"></a>
 ### ORDER:
 Respect the use of the middlewares with the next order.
