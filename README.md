@@ -12,6 +12,7 @@ Take a look in the folder **/src/server/middleware**.
 |restrict.js | Allow a request only if have an authorization header. |
 |tokenDecoder.js | Inject in the context clienId from jwt and in the request object. |
 |traceability.js | Inject in the request and the context the traceability from headers. |
+|logger.js | A JSON logger module to log stdout always in this format, inject the traces and client value. |
 
 ## How to use?
 Create a js file and import the middleware and bind in express app.
@@ -34,6 +35,20 @@ app.use(traceabilityContext);
 app.use(token2Context);
 app.use(expressLogger);
 ```
+
+## Detail:
+
+**tokenDecoder**:
+Extract the "sub" claim from the "authorization" header decoding the JWT token, modify the expressjs request object adding "clientId" attribute",
+append in the context the "client" value with the "sub" value from jwt.
+
+
+
+app.use(httpContext.middleware);
+app.use(traceabilityContext);
+app.use(token2Context);
+app.use(expressLogger);
+
 
 ## Examples:
 In this section you can test the middleware running.
