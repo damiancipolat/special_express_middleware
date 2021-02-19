@@ -1,4 +1,4 @@
-<img src="https://github.com/damiancipolat/arduino101/blob/master/doc/logo.png?raw=true" width="150px" align="right" />
+<img src="https://github.com/damiancipolat/node-bff/blob/master/doc/node.png?raw=true" width="150px" align="right" />
 
 # Special custom middleware for expressjs 🚀
 This project consists of being a collection of middlewares created for expressjs. In order to have a focus on monitoring and traceability designed for production ready api-rest.
