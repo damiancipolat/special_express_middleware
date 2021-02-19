@@ -1,0 +1,20 @@
+{
+  "name": "Test-service",
+  "version": "1.0.0",
+  "description": "Example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server/index.js"
+  },
+  "author": "Damian Cipolat",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-http-context": "^1.2.4",
+    "http-errors": "^1.7.3",
+    "jwt-decode": "^2.2.0"
+  },
+  "devDependencies": {}
+}
