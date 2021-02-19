@@ -87,6 +87,16 @@ const process = () => {
 }
 ```
 
+### ORDER:
+Respect the use of the middlewares with the next order.
+
+```js
+app.use(httpContext.middleware);   //1 --> Use NPM express-http-context module.
+app.use(traceabilityContext);      //2 --> Request traceability.
+app.use(token2Context);            //3 --> Context loader.
+app.use(expressLogger);            //4 --> Request logger. 
+```
+
 ## Detail:
 
 ### 1) **traceability**:
