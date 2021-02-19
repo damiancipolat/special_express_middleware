@@ -38,6 +38,55 @@ app.use(token2Context);
 app.use(expressLogger);
 ```
 
+**Logger**
+In the file **/src/server/controller/home.js*** the logger module, generate a **stdout** including some special values **"client,traceId"**.
+
+```js
+const logger = require('../lib/logger');
+
+const home = async (req, res, next) => {  
+
+  logger.log({
+    message:'Processing home',
+    value:'activated'
+  });
+
+  const mock = process();
+
+  res.status(200).json({
+    mock
+  });
+
+};
+```
+
+In the file **/src/server/services/testService.js*** the logger module, generate a **stdout** including some special values **"client,traceId"**.
+
+```js
+const logger = require('../lib/logger');
+
+/**
+ * Parse the client result.notification.parse(result[0]['body']),
+ * @param {object} receive the db object.
+ * @returns {object}
+ */
+const process = () => {
+
+  logger.info('Run process test service');
+
+  return {
+    name:'Damian Cipolat',
+    mone:'2000.00',
+    benefits:[
+      'golf',
+      'psx',
+      'netflix'
+    ]
+  };
+
+}
+```
+
 ## Detail:
 
 ### 1) **traceability**:
@@ -77,6 +126,10 @@ Running 8000
 {"level":"INFO","code":0,"time":1613712617330,"message":"Run process test service","traceId":"1213123213123213213123","client":"1234567890"}
 {"level":"LOG","code":0,"time":1613712617330,"message":"Response request","url":"/","status":200,"method":"GET","traceId":"1213123213123213213123","client":"1234567890","response":{"mock":{"name":"Damian Cipolat","mone":"2000.00","benefits":["golf","psx","netflix"]}}}
 ```
+
+**Traceability**
+Take a look in the stdout, the expresslogger and the logger lib, extract the **traceId** and **client** from the headers and jwt.
+
 
 ### Example °2:
 Try the next CURL with the running api.
