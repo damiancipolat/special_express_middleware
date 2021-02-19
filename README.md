@@ -3,6 +3,14 @@
 # Special custom middleware for expressjs 🚀
 This project consists of being a collection of middlewares created for expressjs. In order to have a focus on monitoring and traceability designed for production ready api-rest.
 
+## Index:
+- [Middleware list](#list)
+- [How to use?](#use)
+- [Including order](#order)
+- [Middleware specification](#detail)
+- [Usage examples](#examples)
+
+<a name="list"></a>
 ## List of middleware
 Take a look in the folder **/src/server/middleware**.
 
@@ -14,6 +22,7 @@ Take a look in the folder **/src/server/middleware**.
 |traceability.js | Inject in the request and the context the traceability from headers. |
 |logger.js | A JSON logger module to log stdout always in this format, inject the traces and client value. |
 
+<a name="use"></a>
 ## How to use?
 Create a js file and import the middleware and bind in express app.
 
@@ -87,6 +96,7 @@ const process = () => {
 }
 ```
 
+<a name="order"></a>
 ### ORDER:
 Respect the use of the middlewares with the next order.
 
@@ -97,6 +107,7 @@ app.use(token2Context);            //3 --> Context loader.
 app.use(expressLogger);            //4 --> Request logger. 
 ```
 
+<a name="detail"></a>
 ## Detail:
 
 ### 1) **traceability**:
@@ -109,6 +120,7 @@ append in the context the **"client"** value with the **"sub"** value from jwt.
 ### 3) **expressLogger**:
 This middleware log the **request** and **response** value received in the api.
 
+<a name="examples"></a>
 ## Examples:
 In this section you can test the middleware, I include information about the stdout in each request.
 
