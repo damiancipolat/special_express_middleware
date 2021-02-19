@@ -8,6 +8,7 @@ This project consists of being a collection of middlewares created for expressjs
 - [How to use?](#use)
 - [Including order](#order)
 - [Middleware specification](#detail)
+- [Usage diagram](#diagram)
 - [Usage examples](#examples)
 
 <a name="list"></a>
@@ -96,10 +97,6 @@ const process = () => {
 }
 ```
 
-### Diagram, traceability:
-<img src="https://github.com/damiancipolat/special_express_middleware/blob/main/diagram.png?raw=true" width="800px"/>
-
-
 <a name="order"></a>
 ### ORDER:
 Respect the use of the middlewares with the next order.
@@ -123,6 +120,11 @@ append in the context the **"client"** value with the **"sub"** value from jwt.
 
 ### 3) **expressLogger**:
 This middleware log the **request** and **response** value received in the api.
+
+<a name="diagram"></a>
+### Diagram, traceability:
+The diagram explain the use of the traceability id's with this project.
+<img src="https://github.com/damiancipolat/special_express_middleware/blob/main/diagram.png?raw=true" width="800px"/>
 
 <a name="examples"></a>
 ## Examples:
